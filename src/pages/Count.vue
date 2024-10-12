@@ -5,28 +5,10 @@
       <div class="col">
         <img class="image" :class="{ 'image-scale': result && result === 'ok' }" alt="Quasar logo"
           src="~assets/logo.png" width="600">
-        <q-card v-if="result && result === 'ok'" class="my-card bg-secondary text-white">
-          <q-card-section>
-            <p>Bravo !, voici l'indice :</p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam doloremque tempore eveniet distinctio
-            nihil quibusdam omnis at eos aliquid, iure neque aspernatur? Eius voluptate numquam itaque nam illum
-            possimus adipisci.
-          </q-card-section>
-        </q-card>
-        <q-card v-if="result && result === 'ko'" class="my-card bg-red text-white">
-          <q-card-section>
-            Code incorret
-          </q-card-section>
-        </q-card>
       </div>
-      <q-form @submit="onSubmit">
-        <div class="col q-mt-lg">
-          <q-input v-model="answer" filled label="Saisir le code" />
-        </div>
-        <div class="col flex flex-center q-mt-lg">
-          <q-btn style="width:100%" type="submit" outline size="lg" label="Valider" />
-        </div>
-      </q-form>
+      <div class="col q-mt-lg">
+        <Countdown />
+      </div>
     </div>
 
 
@@ -35,6 +17,7 @@
 
 <script setup>
 import { useQuasar } from 'quasar'
+import Countdown from 'src/components/Count-down.vue';
 import { ref } from 'vue'
 const $q = useQuasar()
 $q.dark.set(true)
