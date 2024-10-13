@@ -7,15 +7,13 @@
           src="~assets/logo.png" width="600">
         <q-card v-if="result && result === 'ok'" class="my-card bg-secondary text-white">
           <q-card-section>
-            <p>Bravo !, voici l'indice :</p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam doloremque tempore eveniet distinctio
-            nihil quibusdam omnis at eos aliquid, iure neque aspernatur? Eius voluptate numquam itaque nam illum
-            possimus adipisci.
+            <h4 style="margin: 0">😃🎉 Bravo !! voici l'indice :</h4>
+            <h1 style="margin: 0">{{ indice }}</h1>
           </q-card-section>
         </q-card>
         <q-card v-if="result && result === 'ko'" class="my-card bg-red text-white">
           <q-card-section>
-            Code incorret
+            😱 Code incorrect
           </q-card-section>
         </q-card>
       </div>
@@ -48,17 +46,21 @@ window.addEventListener('load', function () {
 
 const answer = ref('')
 const result = ref('')
+const indice = ref('')
 
 function onSubmit () {
-  if (answer.value === '1234') {
+  if (answer.value === '64781') {
     result.value = 'ok'
-    /* const audio = document.getElementById('audioPlayer');
-    audio.play().catch(error => {
-      console.log("Erreur lors de la lecture : ", error);
-    }); */
-  } else {
+    indice.value = 'Medecin'
+  } else if (answer.value === '9845') {
+    result.value = 'ok'
+    indice.value = 'Ambulance'
+  } else if (answer.value === '4678') {
+    result.value = 'ok'
+    indice.value = 'Urgence'
+  }
+  else {
     result.value = 'ko'
-
   }
 }
 
